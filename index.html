@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✦ 个人作品集 - 宇宙科技风</title>
+  <meta name="description" content="个人作品展示 - 创意与科技的交汇">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/filter-detail.css">
+</head>
+<body>
+  <!-- 注: 星空画布由 starfield.js 自动创建，无需手动添加 canvas -->
+
+  <!-- ====== 主题切换按钮 ====== -->
+  <button class="theme-toggle" id="themeToggle" aria-label="切换主题">☀️</button>
+
+  <!-- ====== 顶部导航 ====== -->
+  <nav class="nav-bar" id="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo glow-text">✦ PORTFOLIO</a>
+      <div class="nav-links">
+        <a href="#hero">首页</a>
+        <a href="#projects">作品</a>
+        <a href="#skills">技能</a>
+        <a href="#contact">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====== 英雄区（大标题 + 打字动画） ====== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-content">
+      <p class="hero-greeting glow-text">&lt; Hello World /&gt;</p>
+      <h1 class="hero-title">
+        <span class="static-text">I'm </span>
+        <span class="typing-text" id="typingText"></span>
+      </h1>
+      <p class="hero-subtitle" id="heroSubtitle">全栈开发者 / 创意工程师 / 科技爱好者</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-glow">✦ 探索作品</a>
+        <a href="#contact" class="btn-outline-glow">✉ 联系我</a>
+      </div>
+      <div class="hero-scroll-indicator">
+        <span>↓ 向下滚动</span>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- ====== 个人简介区 ====== -->
+    <section class="profile-section glass-card" id="profile">
+      <div class="profile-avatar-wrapper">
+        <img src="" alt="头像" class="profile-avatar" id="avatarImg">
+        <div class="avatar-glow"></div>
+      </div>
+      <div class="profile-info">
+        <h2 id="profileName" class="gradient-text">开发者姓名</h2>
+        <p class="profile-title" id="profileTitle">✦ 全栈开发者 / 创意工程师</p>
+        <p class="profile-bio" id="profileBio">
+          热爱科技与创意，专注于构建优雅的数字产品。
+          擅长全栈开发、UI/UX 设计，始终保持对新技术的好奇与探索。
+        </p>
+        <div class="profile-links">
+          <a href="#" id="githubLink" target="_blank" rel="noopener" class="social-link github-link">
+            <span class="link-icon">&lt;/&gt;</span> GitHub
+          </a>
+          <a href="mailto:" id="emailLink" class="social-link email-link">
+            <span class="link-icon">✉</span> 联系我
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== 作品区 ====== -->
+    <section id="projects">
+      <div class="section-header">
+        <h2 class="section-title glow-text">✦ 作品展示</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="filter-bar" id="filterBar"></div>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+
+    <!-- ====== 技能区 ====== -->
+    <section class="skills-section" id="skills">
+      <div class="section-header">
+        <h2 class="section-title glow-text">⚡ 技能技术栈</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-cloud" id="skillsGrid"></div>
+    </section>
+
+    <!-- ====== 联系区 ====== -->
+    <section class="contact-section glass-card" id="contact">
+      <h2 class="gradient-text">📬 联系我</h2>
+      <p class="contact-desc">如果你对我的作品感兴趣，欢迎随时联系！</p>
+      <div class="contact-links">
+        <a href="#" class="btn-glow" id="footerGithub" target="_blank" rel="noopener">
+          &lt;/&gt; GitHub 主页
+        </a>
+        <a href="mailto:" class="btn-glow" id="footerEmail">
+          ✉ 发送邮件
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== 页脚 ====== -->
+  <footer class="site-footer">
+    <div class="footer-glow-line"></div>
+    <p>✦ <span id="footerYear">2024</span> 个人作品集 · 用 ❤ 与 ✦ 打造 ✦</p>
+  </footer>
+
+  <!-- ====== 脚本加载(顺序重要) ====== -->
+  <script src="js/starfield.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

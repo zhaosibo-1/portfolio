@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✦ 管理后台 - 作品集</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/cards.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <!-- 注: 星空画布由 starfield.js 自动创建 -->
+
+  <!-- ====== 登录页面 ====== -->
+  <div class="login-page" id="loginPage">
+    <div class="login-box glass-card">
+      <div class="login-icon">✦</div>
+      <h1 class="gradient-text">管理员登录</h1>
+      <p>请输入管理员密码进入后台管理</p>
+      <form onsubmit="handleLogin(); return false;">
+        <div class="form-group">
+          <label for="loginPassword">管理员密码</label>
+          <input type="password" id="loginPassword" placeholder="请输入密码" autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn-primary btn-full">✦ 登录</button>
+        <div class="login-error" id="loginError"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====== 管理面板（登录后显示） ====== -->
+  <div class="admin-page" id="adminPanel" style="display:none;">
+    <div class="admin-mobile-menu">
+      <button onclick="toggleSidebar()" class="btn-secondary">☰ 菜单</button>
+    </div>
+
+    <div class="admin-container">
+      <aside class="admin-sidebar" id="adminSidebar">
+        <div class="admin-logo gradient-text">✦ 管理后台</div>
+        <nav>
+          <a href="#" class="active" onclick="showView('list'); return false;">📋 作品管理</a>
+          <a href="#" onclick="showView('add'); return false;">➕ 新增作品</a>
+          <a href="#" onclick="handleLogout()">🚪 退出登录</a>
+          <a href="/" target="_blank">👁 预览前台</a>
+        </nav>
+      </aside>
+
+      <main class="admin-main">
+        <div id="viewList">
+          <h2 class="gradient-text">📋 作品列表</h2>
+          <p class="admin-hint">拖拽作品可自定义排序</p>
+          <ul class="admin-list" id="projectList"></ul>
+          <div class="empty-state" id="emptyState" style="display:none;">
+            <p>还没有作品，点击左侧「新增作品」开始添加</p>
+          </div>
+        </div>
+
+        <div id="viewForm" style="display:none;">
+          <h2 class="gradient-text" id="formTitle">➕ 新增作品</h2>
+          <form class="admin-form" id="projectForm" onsubmit="return false;">
+            <input type="hidden" id="editId">
+
+            <div class="form-group">
+              <label for="pTitle">项目名称 <span class="required">*</span></label>
+              <input type="text" id="pTitle" required placeholder="输入项目名称">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pDate">完成时间</label>
+                <input type="date" id="pDate">
+              </div>
+              <div class="form-group">
+                <label for="pTags">分类标签（逗号分隔）</label>
+                <input type="text" id="pTags" placeholder="例如: Web, AI, 设计">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="pDesc">项目详细介绍</label>
+              <textarea id="pDesc" rows="6" placeholder="详细介绍你的项目……"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pCover">封面图 URL</label>
+                <input type="url" id="pCover" placeholder="https://example.com/cover.jpg">
+              </div>
+              <div class="form-group">
+                <label>或上传封面</label>
+                <input type="file" id="pCoverFile" accept="image/*">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>项目截图（可多张）</label>
+              <input type="file" id="pScreenshots" accept="image/*" multiple>
+              <div id="screenshotPreview" class="screenshot-grid"></div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pGithub">GitHub 源码地址</label>
+                <input type="url" id="pGithub" placeholder="https://github.com/username/repo">
+              </div>
+              <div class="form-group">
+                <label for="pLive">在线演示链接</label>
+                <input type="url" id="pLive" placeholder="https://your-demo.vercel.app">
+              </div>
+            </div>
+
+            <div class="btn-group">
+              <button type="button" class="btn-primary" onclick="handleSave()">💾 保存作品</button>
+              <button type="button" class="btn-secondary" onclick="showView('list')">取消</button>
+            </div>
+          </form>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/starfield.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

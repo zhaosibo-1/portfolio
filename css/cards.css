@@ -1,0 +1,283 @@
+/* ============================================================
+ * 宇宙科技风 - 作品卡片与技能组件
+ * ============================================================ */
+
+/* ---------- 作品卡片 ---------- */
+.project-card {
+  position: relative;
+  background: var(--card-bg);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 0 30px var(--glow-color), 0 8px 32px rgba(0,0,0,0.2);
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px;
+  right: -1px; bottom: -1px;
+  border-radius: 20px;
+  background: var(--accent-gradient);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 0 60px var(--glow-strong), 0 20px 60px rgba(0,0,0,0.3);
+  border-color: transparent;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.card-cover {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  background: var(--bg-secondary);
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover .card-cover {
+  transform: scale(1.08);
+}
+
+.card-body {
+  padding: 22px;
+  position: relative;
+}
+
+.card-body h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.card-tag {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--tag-bg);
+  color: var(--accent);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card-tag:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 16px var(--glow-color);
+}
+
+.card-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ---------- 作品网格 ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 32px;
+  padding: 10px 0 40px;
+}
+
+/* ---------- 筛选栏 ---------- */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.filter-btn {
+  padding: 10px 26px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 0 20px var(--glow-color);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: var(--accent-gradient);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 0 30px var(--glow-strong);
+}
+
+/* ---------- 技能云 ---------- */
+.skills-section {
+  margin-bottom: 60px;
+}
+
+.skills-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.skill-badge {
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  transition: all 0.4s ease;
+  backdrop-filter: blur(8px);
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.skill-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 0 30px var(--glow-color), 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* ---------- 联系区 ---------- */
+.contact-section {
+  text-align: center;
+  padding: 60px 40px;
+  margin-bottom: 40px;
+}
+
+.contact-section h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.contact-desc {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 28px;
+}
+
+.contact-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- 页脚 ---------- */
+.site-footer {
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  position: relative;
+}
+
+.footer-glow-line {
+  height: 1px;
+  max-width: 300px;
+  margin: 0 auto 20px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
+
+/* ---------- 空状态 ---------- */
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-muted);
+}
+.empty-state .empty-icon { font-size: 3rem; margin-bottom: 16px; }
+.empty-state p { font-size: 1.1rem; }
+
+/* ---------- 加载动画 ---------- */
+.loading { text-align: center; padding: 60px; }
+.spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--glass-border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- 入场动画 ---------- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; gap: 24px; }
+  .filter-bar { gap: 8px; }
+  .filter-btn { font-size: 0.82rem; padding: 8px 18px; }
+  .contact-section { padding: 40px 20px; }
+}
+@media (max-width: 480px) {
+  .card-cover { height: 180px; }
+  .card-body { padding: 16px; }
+  .card-body h3 { font-size: 1.05rem; }
+}

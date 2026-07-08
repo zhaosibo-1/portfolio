@@ -1,0 +1,154 @@
+/* ============================================================
+ * 宇宙科技风 - 筛选标签与详情页
+ * ============================================================ */
+
+/* ---------- 分类标签(通用) ---------- */
+.tag {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: var(--tag-bg);
+  color: var(--accent);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  margin-right: 6px;
+  margin-bottom: 6px;
+  transition: all 0.3s ease;
+}
+.tag:hover {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 16px var(--glow-color);
+}
+
+/* ---------- 详情页 ---------- */
+.project-detail {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 100px 20px 40px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.detail-header { margin-bottom: 32px; }
+
+.detail-header h1 {
+  font-size: 2.4rem;
+  font-weight: 900;
+  margin-bottom: 14px;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.detail-desc {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: var(--text-primary);
+  margin-bottom: 36px;
+  white-space: pre-wrap;
+}
+
+.detail-cover {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin-bottom: 32px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 0 40px var(--glow-color);
+}
+
+/* ---------- 截图画廊 ---------- */
+.detail-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.detail-gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--glass-border);
+  transition: all 0.4s ease;
+  cursor: zoom-in;
+}
+
+.detail-gallery img:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 40px var(--glow-strong);
+  border-color: var(--accent);
+}
+
+/* ---------- 详情按钮 ---------- */
+.detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.detail-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+
+.btn-live {
+  background: var(--accent-gradient);
+  color: #fff;
+  box-shadow: 0 0 20px var(--glow-color);
+}
+.btn-live:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 40px var(--glow-strong);
+}
+.btn-github {
+  background: rgba(36, 41, 46, 0.8);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.btn-github:hover {
+  background: #1b1f23;
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(100,100,100,0.3);
+}
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+.btn-back:hover { color: var(--accent); }
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 768px) {
+  .detail-header h1 { font-size: 1.7rem; }
+  .detail-gallery { grid-template-columns: 1fr; }
+  .detail-actions { flex-direction: column; }
+  .detail-actions a { justify-content: center; }
+}
